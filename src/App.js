@@ -11,9 +11,9 @@ import Projects from "./components/Projects";
 // Import a component named "Skills" from a file named "./components/Skills.js".
 import Skills from "./components/Skills";
 // Import a fetch function named "fetch-ring" from a file named "Ring.js" in v1/source/components folder.
-import Ring from "./components/Ring2.js";
+import Ring from "./components/Ring.js";
 // Import a fetch function named "fetch-hub" from a file named "Hub.js" in v1/source/components folder.
-import Hubspot from "./components/Hub2.js";
+import Hubspot from "./components/Hub.js";
 // Import a component named "Testimonials" from a file named "./components/Testimonials.js".
 import Testimonials from "./components/Testimonials";
 
