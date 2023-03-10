@@ -7,14 +7,7 @@ const Hubspot = () => {
 
   const fetchContacts = async () => {
     try {
-      const apiKey = process.env.REACT_APP_HUBSPOT_API_KEY;
-      const url = `https://api.hubapi.com/contacts/v1/lists/all/contacts/all`;
-
-      const response = await fetch(url, {
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-        },
-      });
+      const response = await fetch("/.netlify/functions/hubspot");
       const data = await response.json();
 
       setContacts(data.contacts);
