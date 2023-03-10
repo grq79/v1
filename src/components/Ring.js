@@ -4,7 +4,7 @@ require("dotenv").config();
 
 const headers = {
   Accept: "application/json",
-  Authorization: `Bearer ${process.env.Ring_API}`,
+  Authorization: `Bearer ${process.env.REACT_APP_RING_API}`,
 };
 
 const Ring = () => {

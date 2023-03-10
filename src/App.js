@@ -7,7 +7,7 @@ import Contact from "./components/Contact";
 // Import a component named "Navbar" from a file named "./components/Navbar.js".
 import Navbar from "./components/Navbar";
 // Import a component named "Projects" from a file named "./components/Projects.js".
-import Projects from "./components/Projects";
+import Projects from "./componegints/Projects";
 // Import a component named "Skills" from a file named "./components/Skills.js".
 import Skills from "./components/Skills";
 // Import a fetch function named "fetch-ring" from a file named "Ring.js" in v1/source/components folder.
