@@ -3,14 +3,24 @@ import React, { useState } from "react";
 require("dotenv").config();
 
 const Hubspot = () => {
-  const [contacts, setContacts] = useState([]);
+  const [contactsHtml, setContactsHtml] = useState("");
 
   const fetchContacts = async () => {
     try {
       const response = await fetch("/.netlify/functions/hubspot");
       const data = await response.json();
 
-      setContacts(data.contacts);
+      // Render contact data as HTML
+      const contacts = data.contacts.map((contact) => {
+        return `
+          <div>
+            <strong>Name:</strong> ${contact.properties.firstname.value} ${contact.properties.lastname.value}<br />
+            <strong>Email:</strong> ${contact.properties.email.value}<br />
+            <strong>Phone:</strong> ${contact.properties.phone.value}<br />
+          </div>
+        `;
+      });
+      setContactsHtml(contacts.join(""));
     } catch (error) {
       console.error(error);
     }
@@ -30,11 +40,11 @@ const Hubspot = () => {
       <button onClick={fetchContacts} className="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded text-lg">
         Fetch Contacts
       </button>
-      <ul>
-        {contacts.map(contact => (
-          <li key={contact.vid}>{contact.properties.firstname.value} {contact.properties.lastname.value} ({contact.properties.email.value})</li>
-        ))}
-      </ul>
+      <iframe
+        title="HubSpot Contacts"
+        srcDoc={contactsHtml}
+        className="mt-4 w-full h-96 border-2 border-gray-300"
+      ></iframe>
     </div>
   );
 };
